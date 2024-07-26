@@ -13,7 +13,7 @@ def run_docker():
 
     try:
         command = [
-            'docker', 'run', '--rm',
+            'sudo','docker', 'run', '--rm',
             '-v', '/var/run/docker.sock:/var/run/docker.sock',
             '-e', f'GITHUB_URL={github_url}',
             '-e', f'USER_ID={user_id}',
