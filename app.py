@@ -13,13 +13,13 @@ def run_docker():
 
     try:
         command = [
-            'sudo','docker', 'run', '--rm',
+            'sudo', 'docker', 'run', '--rm',
             '-v', '/var/run/docker.sock:/var/run/docker.sock',
             '-e', f'GITHUB_URL={github_url}',
             '-e', f'USER_ID={user_id}',
-            'nixpacks_builder'
-        ]
-        
+            '--name', 'nix_builder_container',
+            'akshathnag06002/akkiregistry:nixpacks_builder'
+        ]        
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return jsonify({
             'stdout': result.stdout.decode('utf-8'),
