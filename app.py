@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 @app.route('/run-docker', methods=['POST'])
 def run_docker():
+    print("request received")
     github_url = request.json.get('GITHUB_URL')
     user_id = request.json.get('USER_ID')
 
